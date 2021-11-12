@@ -1,0 +1,44 @@
+import tkinter
+from tkinter import *
+from tkinter import ttk
+
+def MFPCalculate(*args):
+    try:
+        value = float(feet.get())
+        meters.set(int(.3048 * value * 1000 + .5)/1000)
+    except ValueError:
+        pass
+
+top = tkinter.Tk()
+top.title("Marketing Tool")
+
+frm = ttk.Frame(top, padding="3 3 12 12")
+frm.grid(column=0, row=0, sticky=(N, W, E, S))
+top.columnconfigure(0, weight=1)
+top.rowconfigure(0, weight=1)
+
+productionLY = StringVar()
+productionLY_entry = ttk.Entry(frm, width=7, textvariable=productionLY)
+productionLY_entry.grid(column=2, row=1, sticky=(W,E))
+
+laborLY = StringVar()
+laborLY_entry = ttk.Entry(frm, width=7, textvariable=laborLY)
+productionLY_entry.grid(column=2, row=2, sticky=(W, E))
+
+
+meters = StringVar()
+ttk.Label(frm, textvariable=meters).grid(column=2, row=2, sticky=(W,E))
+
+ttk.Button(frm, text="Calculate", command=MFPCalculate).grid(column=3, row=3, sticky=W)
+
+ttk.Label(frm, text="feet").grid(column=3, row=1, sticky=W)
+ttk.Label(frm, text="is equivalent to").grid(column=1, row=2, sticky=E)
+ttk.Label(frm, text="meters").grid(column=3, row=2, sticky=W)
+
+for child in frm.winfo_children():
+    child.grid_configure(padx=5, pady=5)
+
+laborLY_entry.focus()
+top.bind("<Return>", MFPCalculate)
+
+top.mainloop()
