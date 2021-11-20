@@ -2,9 +2,9 @@ from tkinter import *
 from tkinter import ttk
 
 class EMVGUI:
-    def __init__(self):
+    def __init__(self, top):
 
-        top = Tk()
+        self.top = top
         top.title('EMV Tool')
 
         frame = ttk.Frame(top, padding='3 3 12 12')
@@ -13,32 +13,32 @@ class EMVGUI:
         top.rowconfigure(0, weight=1)
         
         #Entry fields and creating variables
-        self.units = StringVar()
+        self.units = DoubleVar()
         units_entry = ttk.Entry(frame, width=12, textvariable=self.units)
         units_entry.grid(column=1, row=2, sticky=(W, E))
 
-        self.dolpe = StringVar()
+        self.dolpe = DoubleVar()
         dolpe_entry = ttk.Entry(frame, width=12, textvariable=self.dolpe)
         dolpe_entry.grid(column=2, row=2, sticky=(W, E))
 
-        self.prob = StringVar()
+        self.prob = DoubleVar()
         prob_entry = ttk.Entry(frame, width=12, textvariable=self.prob)
         prob_entry.grid(column=3, row=2, sticky=(W, E))
 
-        self.valEng = StringVar()
+        self.valEng = DoubleVar()
         valEng_entry = ttk.Entry(frame, width=12, textvariable=self.valEng)
         valEng_entry.grid(column=4, row=2, rowspan=3, sticky=(W, E))
 
         #Second set of Entry fields
-        self.units2 = StringVar()
+        self.units2 = DoubleVar()
         units_entry = ttk.Entry(frame, width=12, textvariable=self.units2)
         units_entry.grid(column=1, row=3, sticky=(W, E))
 
-        self.dolpe2 = StringVar()
+        self.dolpe2 = DoubleVar()
         dolpe_entry = ttk.Entry(frame, width=12, textvariable=self.dolpe2)
         dolpe_entry.grid(column=2, row=3, sticky=(W, E))
 
-        self.prob2 = StringVar()
+        self.prob2 = DoubleVar()
         prob_entry = ttk.Entry(frame, width=12,  textvariable=self.prob2)
         prob_entry.grid(column=3, row=3, sticky=(W, E))
 
@@ -57,18 +57,16 @@ class EMVGUI:
         ttk.Label(frame, text="Value Engineering").grid(column=4, row=1, sticky=(N, S))
         ttk.Label(frame, text="EMV").grid(column=5, row=1, sticky=(N, S))
         
-        #Run the fram
+        #Run the frame
         top.mainloop()
 
-    def calculateEMV(self, *args):
-        units = float(self.units.get())
-        units2 = float(self.units2.get())
-        dolpe = float(self.dolpe.get())
-        dolpe2 = float(self.dolpe2.get())
-        prob = float(self.prob.get())
-        prob2 = float(self.prob2.get())
+    def calculateEMV(self):
+        units = self.units.get()
+        units2 = self.units2.get()
+        dolpe = self.dolpe.get()
+        dolpe2 = (self.dolpe2.get())
+        prob = (self.prob.get())
+        prob2 = (self.prob2.get())
         result = ((units*dolpe)*prob)+((units2*dolpe2)*prob2)
         self.EMV.set(f'{round(result, 4):,}')
     pass
-
-EMVGUI()

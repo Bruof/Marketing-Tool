@@ -2,10 +2,10 @@ from tkinter import *
 from tkinter import ttk
 
 class MFPGUI:
-    def __init__(self):
+    def __init__(self, top):
         
         #Creating the Tkinter frame
-        top = Tk()
+        self.top = top
         top.title("MFP Tool")
 
         frm = ttk.Frame(top, padding="3 3 12 12")
@@ -14,60 +14,60 @@ class MFPGUI:
         top.rowconfigure(0, weight=1)
 
         #Last Year start
-        self.productionLY = StringVar()
+        self.productionLY = DoubleVar()
         productionLY_entry = ttk.Entry(frm, width=7, textvariable=self.productionLY)
         productionLY_entry.grid(column=2, row=1, sticky=(W, E))
 
-        self.laborLY = StringVar()
+        self.laborLY = DoubleVar()
         laborLY_entry = ttk.Entry(frm, width=7, textvariable=self.laborLY)
         laborLY_entry.grid(column=2, row=2, sticky=(W, E))
 
-        self.laborLyCost = StringVar()
+        self.laborLyCost = DoubleVar()
         laborLyCost_entry = ttk.Entry(frm, width=7, textvariable=self.laborLyCost)
         laborLyCost_entry.grid(column=2, row=3, sticky=(W, E))
 
-        self.capitalInvestmentLY = StringVar()
+        self.capitalInvestmentLY = DoubleVar()
         capitalInvestmentLY_entry = ttk.Entry(frm, width=7, textvariable=self.capitalInvestmentLY)
         capitalInvestmentLY_entry.grid(column=2, row=4, sticky=(W, E))
 
-        self.capitalInvestmentCostsLY = StringVar()
+        self.capitalInvestmentCostsLY = DoubleVar()
         capitalInvestmentCostsLY_entry = ttk.Entry(frm, width=7, textvariable=self.capitalInvestmentCostsLY)
         capitalInvestmentCostsLY_entry.grid(column=2, row=5, sticky=(W, E))
 
-        self.energyLY = StringVar()
+        self.energyLY = DoubleVar()
         energyLY_entry = ttk.Entry(frm, width=7, textvariable=self.energyLY)
         energyLY_entry.grid(column=2, row=6, sticky=(W, E))
 
-        self.energyCostsLY = StringVar()
+        self.energyCostsLY = DoubleVar()
         energyCosts_entry = ttk.Entry(frm, width=7, textvariable=self.energyCostsLY)
         energyCosts_entry.grid(column=2, row=7, sticky=(W, E))
 
         # This year start
-        self.productionTY = StringVar()
+        self.productionTY = DoubleVar()
         productionLY_entry = ttk.Entry(frm, width=7, textvariable=self.productionTY)
         productionLY_entry.grid(column=5, row=1, sticky=(W, E))
 
-        self.laborTY = StringVar()
+        self.laborTY = DoubleVar()
         laborLY_entry = ttk.Entry(frm, width=7, textvariable=self.laborTY)
         laborLY_entry.grid(column=5, row=2, sticky=(W, E))
 
-        self.laborTYCost = StringVar()
+        self.laborTYCost = DoubleVar()
         laborLyCost_entry = ttk.Entry(frm, width=7, textvariable=self.laborTYCost)
         laborLyCost_entry.grid(column=5, row=3, sticky=(W, E))
 
-        self.capitalInvestmentTY = StringVar()
+        self.capitalInvestmentTY = DoubleVar()
         capitalInvestmentLY_entry = ttk.Entry(frm, width=7, textvariable=self.capitalInvestmentTY)
         capitalInvestmentLY_entry.grid(column=5, row=4, sticky=(W, E))
 
-        self.capitalInvestmentCostsTY = StringVar()
+        self.capitalInvestmentCostsTY = DoubleVar()
         capitalInvestmentCostsLY_entry = ttk.Entry(frm, width=7, textvariable=self.capitalInvestmentCostsTY)
         capitalInvestmentCostsLY_entry.grid(column=5, row=5, sticky=(W, E))
 
-        self.energyTY = StringVar()
+        self.energyTY = DoubleVar()
         energyLY_entry = ttk.Entry(frm, width=7, textvariable=self.energyTY)
         energyLY_entry.grid(column=5, row=6, sticky=(W, E))
 
-        self.energyCostsTY = StringVar()
+        self.energyCostsTY = DoubleVar()
         energyCosts_entry = ttk.Entry(frm, width=7, textvariable=self.energyCostsTY)
         energyCosts_entry.grid(column=5, row=7, sticky=(W, E))
 
