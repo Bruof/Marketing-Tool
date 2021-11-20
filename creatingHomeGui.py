@@ -20,5 +20,6 @@ class CreateHomeGUI:
         ttk.Button(frame, text="EMV Tool", command=EMVGUI).grid(column=1, row=2, sticky=(W, E))
 
         top.mainloop()
+        pass
 
 CreateHomeGUI()

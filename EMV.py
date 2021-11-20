@@ -70,5 +70,3 @@ class EMVGUI:
         result = ((units*dolpe)*prob)+((units2*dolpe2)*prob2)
         self.EMV.set(f'{round(result, 4):,}')
     pass
-
-EMVGUI()
