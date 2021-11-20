@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 
 from MFP import MFPGUI
+from EMV import EMVGUI
 
 
 class CreateHomeGUI:
@@ -16,6 +17,7 @@ class CreateHomeGUI:
         top.rowconfigure(0, weight=1)
 
         ttk.Button(frame, text='Multifactor Productivity', command=MFPGUI).grid(column=1, row=1, sticky=(W, E))
+        ttk.Button(frame, text="EMV Tool", command=EMVGUI).grid(column=1, row=2, sticky=(W, E))
 
         top.mainloop()
 
